@@ -1,0 +1,10 @@
+body {
+    background-color: antiquewhite;
+}
+.row {
+    display:  flex;
+    justify-content: start;
+    align-items: center;
+
+    margin: 1rem;
+}
