@@ -3,7 +3,7 @@ const checks = document.getElementsByClassName("check");
 console.log(tasks);
 console.log("start of program");
 
-const sdnj = () => {
+const update = () => {
     for(let i = 0;i<tasks.length;i++){
         tasks[i].addEventListener("change", () => {
             localStorage.setItem(`${i}`,JSON.stringify(tasks[i].value));
@@ -17,7 +17,7 @@ const sdnj = () => {
     console.log("working");
 };
 
-sdnj();
+update();
 
 for(let i = 0; i<tasks.length;i++) {
     tasks[i].value = JSON.parse(localStorage.getItem(i));
