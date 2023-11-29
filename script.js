@@ -24,10 +24,16 @@ for(let i = 0; i<tasks.length;i++) {
     checks[i].checked = JSON.parse(localStorage.getItem(`c_${i}`));
 }
 
-const addTask = () => {
+const addTask = (i) => {
+    i += 3;
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    checkBox.class = "check";
+    checkBox.id = `i${i}`;
+    checkBox.name = `t${i}`;
     let textBox = document.createElement("input");
     textBox.type = "text"
-    textBox.className = "task";
+    textBox.class = "task";
+    textBox.id = `i${i}`;
+    textBox.name = `t${i}`;
 };
