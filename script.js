@@ -17,6 +17,10 @@ const update = () => {
     console.log("working");
 };
 
+const add = (i) => {
+    update
+};
+
 update();
 
 for(let i = 0; i<tasks.length;i++) {
