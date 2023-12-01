@@ -1,28 +1,36 @@
-const tasks = document.getElementsByClassName("task");
-const checks = document.getElementsByClassName("check");
-const btn = document.querySelector("button")
+const tasks = Array.from(document.getElementsByClassName("task"));
+const checks = Array.from(document.getElementsByClassName("check"));
+const btn = document.querySelector("button");
 console.log(tasks);
 console.log("start of program");
 
-const addTask = (i) => {
-    let div = document.createElement("div");
+const addTask = () => {
+    let i = tasks.length
+    console.log("executed");
+    var div = document.createElement("div");
     div.class = "row";
-    let checkBox = document.createElement("input");
+    var checkBox = document.createElement("input");
+
     checkBox.type = "checkbox";
     checkBox.class = "check";
     checkBox.id = `i${i}`;
     checkBox.name = `t${i}`;
     div.appendChild(checkBox);
-    let textBox = document.createElement("input");
+    var textBox = document.createElement("input");
     textBox.type = "text"
     textBox.class = "task";
-    textBox.id = `i${i}`;
+    textBox.id = `t${i}`;
     textBox.name = `t${i}`;
+    console.log(tasks);
     tasks.push(textBox);
     div.appendChild(textBox);
-    let cont = document.querySelector(".flex-container")
+    var cont = document.querySelector(".flex-container")
     cont.appendChild(div);
-    update()
+
+    update();
+
+    checks = document.getElementsByClassName("check");
+    tasks = document.getElementsByClassName("task");
 };
 
 const update = () => {
@@ -32,16 +40,13 @@ const update = () => {
             console.log(localStorage.getItem(i));
         });
         checks[i].addEventListener("change", () => {
-            localStorage.setItem(`c_${i}`,JSON.stringify(checks[i].checked))
+            localStorage.setItem(`c_${i}`,JSON.stringify(checks[i].checked));
             console.log(localStorage.getItem(`c_${i}`));
         });
     }
-    btn.addEventListener("onClick", addTask(tasks.length) );
+    //need to investigate why addTask works and not addTask(tasks.length)
+    btn.addEventListener("click", addTask);
     console.log("working");
-};
-
-const add = (i) => {
-    update
 };
 
 update();
