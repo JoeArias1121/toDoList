@@ -1,7 +1,29 @@
 const tasks = document.getElementsByClassName("task");
 const checks = document.getElementsByClassName("check");
+const btn = document.querySelector("button")
 console.log(tasks);
 console.log("start of program");
+
+const addTask = (i) => {
+    let div = document.createElement("div");
+    div.class = "row";
+    let checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+    checkBox.class = "check";
+    checkBox.id = `i${i}`;
+    checkBox.name = `t${i}`;
+    div.appendChild(checkBox);
+    let textBox = document.createElement("input");
+    textBox.type = "text"
+    textBox.class = "task";
+    textBox.id = `i${i}`;
+    textBox.name = `t${i}`;
+    tasks.push(textBox);
+    div.appendChild(textBox);
+    let cont = document.querySelector(".flex-container")
+    cont.appendChild(div);
+    update()
+};
 
 const update = () => {
     for(let i = 0;i<tasks.length;i++){
@@ -14,6 +36,7 @@ const update = () => {
             console.log(localStorage.getItem(`c_${i}`));
         });
     }
+    btn.addEventListener("onClick", addTask(tasks.length) );
     console.log("working");
 };
 
@@ -28,16 +51,3 @@ for(let i = 0; i<tasks.length;i++) {
     checks[i].checked = JSON.parse(localStorage.getItem(`c_${i}`));
 }
 
-const addTask = (i) => {
-    i += 3;
-    let checkBox = document.createElement("input");
-    checkBox.type = "checkbox";
-    checkBox.class = "check";
-    checkBox.id = `i${i}`;
-    checkBox.name = `t${i}`;
-    let textBox = document.createElement("input");
-    textBox.type = "text"
-    textBox.class = "task";
-    textBox.id = `i${i}`;
-    textBox.name = `t${i}`;
-};
