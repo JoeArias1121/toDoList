@@ -39,7 +39,9 @@ const update = () => {
             localStorage.setItem(`${i}`,JSON.stringify(tasks[i].value));
             console.log(localStorage.getItem(i));
         });
+        console.log(checks[i]);
         checks[i].addEventListener("change", () => {
+            console.log(checks[i]);
             localStorage.setItem(`c_${i}`,JSON.stringify(checks[i].checked));
             console.log(localStorage.getItem(`c_${i}`));
         });
