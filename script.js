@@ -26,7 +26,7 @@ const addTask = () => {
     div.appendChild(textBox);
     var cont = document.querySelector(".flex-container")
     cont.appendChild(div);
-
+    console.log(tasks);
     update();
 
     checks = document.getElementsByClassName("check");
