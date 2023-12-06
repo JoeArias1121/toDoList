@@ -7,33 +7,32 @@ console.log("start of program");
 const addTask = () => {
     let i = tasks.length
     console.log("executed");
-    var div = document.createElement("div");
+    let div = document.createElement("div");
     div.class = "row";
-    var checkBox = document.createElement("input");
+    let checkBox = document.createElement("input");
 
     checkBox.type = "checkbox";
     checkBox.class = "check";
     checkBox.id = `i${i}`;
     checkBox.name = `t${i}`;
     div.appendChild(checkBox);
-    var textBox = document.createElement("input");
+    let textBox = document.createElement("input");
     textBox.type = "text"
     textBox.class = "task";
     textBox.id = `t${i}`;
     textBox.name = `t${i}`;
-    console.log(tasks);
+    textBox.value = "";
+    //console.log(tasks);
     tasks.push(textBox);
     div.appendChild(textBox);
-    var cont = document.querySelector(".flex-container")
+    let cont = document.querySelector(".flex-container")
     cont.appendChild(div);
     console.log(tasks);
     update();
-
-    checks = document.getElementsByClassName("check");
-    tasks = document.getElementsByClassName("task");
 };
 
 const update = () => {
+    //console.log(tasks);
     for(let i = 0;i<tasks.length;i++){
         tasks[i].addEventListener("change", () => {
             localStorage.setItem(`${i}`,JSON.stringify(tasks[i].value));
