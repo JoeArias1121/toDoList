@@ -18,11 +18,11 @@ const addTask = () => {
     div.appendChild(checkBox);
     let textBox = document.createElement("input");
     textBox.type = "text"
-    textBox.class = "task";
+    //textBox.class = "task";
     textBox.id = `t${i}`;
     textBox.name = `t${i}`;
     textBox.value = "";
-    //console.log(tasks);
+    console.log(textBox);
     tasks.push(textBox);
     div.appendChild(textBox);
     let cont = document.querySelector(".flex-container")
