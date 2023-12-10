@@ -51,7 +51,7 @@ const update = () => {
 };
 
 update();
-
+//this loads the page with any information held
 for(let i = 0; i<tasks.length;i++) {
     tasks[i].value = JSON.parse(localStorage.getItem(i));
     checks[i].checked = JSON.parse(localStorage.getItem(`c_${i}`));
