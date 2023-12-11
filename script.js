@@ -3,14 +3,13 @@ const checks = Array.from(document.getElementsByClassName("check"));
 const btn = document.querySelector("button");
 console.log(tasks);
 console.log("start of program");
-
+//is there a way to make this into a promise
 const addTask = () => {
     let i = tasks.length
     console.log("executed");
     let div = document.createElement("div");
     div.class = "row";
     let checkBox = document.createElement("input");
-
     checkBox.type = "checkbox";
     checkBox.class = "check";
     checkBox.id = `i${i}`;
